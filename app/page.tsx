@@ -1,11 +1,8 @@
+import type { Pokemon } from '@/types/Pokemon';
 import pokeBall from '../public/images/pokeball.png';
 import Image from "next/image";
 import styles from '../styles/Home.module.css';
-
-type Pokemon = {
-  id: number;
-  name: string;
-}
+import Card from '../components/Card';
 
 export default async function Home() {
   const maxPokemons = 251;
@@ -34,7 +31,7 @@ export default async function Home() {
       </div>
       <div className={styles.pokemon_container}>
         {pokemons.map((pokemon: Pokemon) => (
-          <p key={pokemon.id}>{pokemon.name}</p>
+          <Card key={pokemon.id} pokemon={pokemon}/>
         ))}
       </div>
     </>
